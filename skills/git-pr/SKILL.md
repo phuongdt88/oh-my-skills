@@ -18,11 +18,12 @@ Deep-investigate all files changed in a PR, then generate and apply a reviewer-r
 
 ## Workflow
 
+0. **Load template (MANDATORY FIRST STEP)** — Before drafting anything, run `read_skill_file("git-pr", "references/pr-description-template.md")` to load the exact PR body template into context. Never draft the body from memory — the template is NOT loaded with this skill and MUST be read first. (NO NEGOTIATE)
 1. **Fetch** — Run `gh pr diff` or `git diff base...HEAD` to get the full PR diff
 2. **Read** — Read every changed file to understand the actual implementation
 3. **Investigate** — Trace cross-file dependencies, identify the root change vs cascading effects
 4. **Draft title** — Write a concise PR title in imperative or descriptive form that reflects the root change
-5. **Draft body** — Write a structured description using the template in `references/pr-description-template.md`
+5. **Draft body** — Write a structured description that follows the template loaded in step 0 exactly: keep every header/emoji verbatim, fill each section from the real changes, and mark "if applicable" sections `N/A` rather than deleting them
 6. **Apply** — Run `gh pr edit --title "..." --body "..."` to push both fields to GitHub
 
 ## Rules
